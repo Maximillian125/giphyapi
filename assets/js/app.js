@@ -40,13 +40,10 @@ var displayGifs = function() {
 }
 
  function renderButtons(gif, buttonsView) {
-        // Deletes the movies prior to adding new movies
-        // (this is necessary otherwise you will have repeat buttons)
+        // Deletes gifs prior to adding new gifs
         $("#buttonsView").empty();
-        // Loops through the array of movies
+        // Loops through the array of tv shows
         for (var i = 0; i < tvShows.length; i++) {
-          // Then dynamicaly generates buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
           var a = $("<button>");
           // Adds a class of movie to our button
           a.addClass("gif");
@@ -61,14 +58,14 @@ var displayGifs = function() {
 
       $("#addGif").on("click", function(event) {
         event.preventDefault();
-        // This line of code will grab the input from the textbox
+        //Grabs the input from the textbox
         var gif = $("#gif-input").val().trim();
-        // The movie from the textbox is then added to our array
+        // The gif is added to our array
         tvShows.push(gif);
-        // Calling renderButtons which handles the processing of our movie array
+     
         renderButtons();
       });
-      // Adding click event listeners to all elements with a class of "movie"
+      // Adding click event listeners to all elements with a class of "gif"
       $(document).on("click", ".gif", displayGifs);
       // Calling the renderButtons function to display the intial buttons
       renderButtons();
@@ -86,7 +83,5 @@ var displayGifs = function() {
         $(this).attr('src', still)
         $(this).attr('data-state', 'still')
       }
-      // ==============================================
-      // STEP FOUR: open the file in the browser and click on the images.
-      // Then click again to pause.
+      
     });
